@@ -19,10 +19,10 @@ const imageSrc = (lives: number) => {
   }
 };
 
-const Diagram: FC = () => {
+const Graphics: FC = () => {
   return (
     <img src={imageSrc(0)} alt="hangman" className="w-[23rem] h-[23rem]" />
   );
 };
 
-export default Diagram;
+export default Graphics;
