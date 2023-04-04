@@ -20,3 +20,9 @@ body {
 h1 {
   font-family: "Voltaire", sans-serif;
 }
+
+.selected {
+  pointer-events: none;
+  border-color: rgb(164, 164, 164);
+  color: rgb(164, 164, 164);
+}

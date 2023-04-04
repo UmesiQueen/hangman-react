@@ -22,10 +22,11 @@ const App: FC = () => {
   }
 
   const [word, setWord] = useState(initialValues);
+  const [selected, setSelect] = useState([]);
 
   useEffect(() => {
     Axios.get("https://random-word-api.vercel.app/api?words=1&type=uppercase")
-      .then((data: any) => {
+      .then((data) => {
         const randomWord = data.data[0];
         Axios({
           method: "get",
@@ -45,11 +46,11 @@ const App: FC = () => {
             console.error(`Error retrieving definition : ${err}`)
           );
       })
-      .catch((err: any) => console.error(`Error retrieving word : ${err}`));
+      .catch((err) => console.error(`Error retrieving word : ${err}`));
   }, []);
 
   return (
-    <AppContext.Provider value={{ word }}>
+    <AppContext.Provider value={{ word, selected, setSelect }}>
       <div className="App">
         <Header />
         <main className=" flex flex-col items-center">
