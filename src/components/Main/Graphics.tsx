@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../App";
 
 const imageSrc = (lives: number) => {
   switch (lives) {
@@ -19,9 +20,13 @@ const imageSrc = (lives: number) => {
   }
 };
 
-const Graphics: FC = () => {
+const Graphics: React.FC = () => {
+  const { selected } = useContext(AppContext);
+  const lives = selected.mismatch.length;
+
+  
   return (
-    <img src={imageSrc(0)} alt="hangman" className="w-[23rem] h-[23rem]" />
+    <img src={imageSrc(lives)} alt="hangman" className="w-[23rem] h-[23rem] my-4" />
   );
 };
 
