@@ -1,4 +1,4 @@
-import React, { useRef, useContext} from "react";
+import React, { useRef, useContext, useEffect } from "react";
 import { AppContext } from "../../App";
 
 const alphabet = [
@@ -32,9 +32,15 @@ const alphabet = [
 
 const Alphabet: React.FC = () => {
   const letterRefs = useRef<any>([]);
-  const { word, setSelected } = useContext(AppContext);
+  const { word, setSelected, state } = useContext(AppContext);
   const Letters = word.map((el: any) => el.word.split(""));
 
+  // restore disabled buttons
+  useEffect(() => {
+    letterRefs.current.map((el: Element) => el.classList.remove("selected"));
+  }, [state]);
+
+  // Handle onButtonClick
   const handleClick = (index: number) => {
     const selected = letterRefs.current[index].textContent.toUpperCase();
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { createContext, useState, useEffect, useLayoutEffect} from "react";
+import { createContext, useState, useEffect, useLayoutEffect } from "react";
 import "./App.css";
 import Axios from "axios";
 
@@ -8,8 +8,7 @@ import SubHead from "./components/Head/SubHead";
 import Graphics from "./components/Main/Graphics";
 import Alphabet from "./components/Main/Alphabet";
 import Word from "./components/Main/Word";
-import GameOver from "./components/Aside/GameOver";
-import Won from "./components/Aside/Won";
+import Notifications from "./components/Aside/Notifications";
 
 export const AppContext = createContext<any>(null);
 
@@ -77,8 +76,7 @@ const App: React.FC = () => {
           <Word />
           <Alphabet />
           <aside>
-            <GameOver />
-            <Won />
+            <Notifications />
           </aside>
         </main>
       </div>
