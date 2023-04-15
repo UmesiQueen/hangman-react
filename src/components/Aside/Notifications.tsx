@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useMemo } from "react";
 import { AppContext } from "../../App";
 
 interface props {
-  imgSrc: string;
-  alt: string;
+  img: JSX.Element;
   word?: JSX.Element;
   text: string;
   subtext: string;
@@ -11,8 +10,7 @@ interface props {
 }
 
 const NotificationContainer = ({
-  imgSrc,
-  alt,
+  img,
   word,
   text,
   subtext,
@@ -24,7 +22,7 @@ const NotificationContainer = ({
      flex flex-col justify-around items-center
      absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-xl border"
     >
-      <img src={imgSrc} alt={alt} className="h-1/2 w-full md:w-1/2" />
+      {img}
       {word}
       <h2 className="text-black text-[2em]">
         {text}
@@ -87,8 +85,13 @@ const Notifications: React.FC = (won) => {
     <>
       {state.gameOver && (
         <NotificationContainer
-          imgSrc="./images/7.png"
-          alt="game over"
+          img={
+            <img
+              src="./images/7.png"
+              alt="game over"
+              className="h-1/2 w-full md:w-1/2"
+            />
+          }
           text="Now watch out, I'm coming for you !"
           subtext="xoxo :)"
           element={
@@ -108,10 +111,15 @@ const Notifications: React.FC = (won) => {
 
       {state.won && (
         <NotificationContainer
-          imgSrc="./images/win.png"
-          alt="won"
+          img={
+            <img
+              src="./images/win.png"
+              alt="won"
+              className="h-1/2 w-1/2 md:w-1/4"
+            />
+          }
           word={
-            <div className="inline-flex -mb-10 text-xl">
+            <div className="inline-flex md-mb-10 text-xl">
               Word is : <h2 className="ml-1">{word[0].word}</h2>
             </div>
           }

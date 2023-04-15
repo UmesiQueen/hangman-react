@@ -26,7 +26,7 @@ const Graphics: React.FC = () => {
 
   
   return (
-    <img src={imageSrc(lives)} alt="hangman" className="w-[23rem] h-[23rem] my-4" />
+    <img src={imageSrc(lives)} alt="hangman" className="w-[15rem] h-[15rem] my-4" />
   );
 };
 

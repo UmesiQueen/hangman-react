@@ -70,7 +70,7 @@ const App: React.FC = () => {
     >
       <div className="App">
         <Header />
-        <main className=" p-5 flex flex-col items-center md:w-1/2 md:mx-auto md:px-0">
+        <main className="px-5 py-4 flex flex-col items-center md:w-1/2 md:mx-auto md:px-0">
           <SubHead />
           <Graphics />
           <Word />
