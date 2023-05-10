@@ -1,8 +1,7 @@
-import React from "react";
 import { createContext, useState, useEffect, useLayoutEffect } from "react";
-import "./App.css";
 import Axios from "axios";
 
+import "./App.css";
 import Header from "./components/Head/Header";
 import SubHead from "./components/Head/SubHead";
 import Graphics from "./components/Main/Graphics";
@@ -12,10 +11,12 @@ import Notifications from "./components/Aside/Notifications";
 
 export const AppContext = createContext<any>(null);
 
-const App: React.FC = () => {
-  const initialValues: initialState[] = [
-    { word: "", partOfSpeech: "", definition: "" },
-  ];
+const App = () => {
+  const initialValues: initialState = {
+    word: "",
+    partOfSpeech: "",
+    definition: "",
+  };
 
   //interface for initialState
   interface initialState {
@@ -49,13 +50,11 @@ const App: React.FC = () => {
           url: "/" + randomWord,
         })
           .then((data) => {
-            setWord([
-              {
-                word: randomWord,
-                partOfSpeech: data.data[0].meanings[0].partOfSpeech,
-                definition: data.data[0].meanings[0].definitions[0].definition,
-              },
-            ]);
+            setWord({
+              word: randomWord,
+              partOfSpeech: data.data[0].meanings[0].partOfSpeech,
+              definition: data.data[0].meanings[0].definitions[0].definition,
+            });
           })
           .catch((err) =>
             console.error(`Error retrieving definition : ${err}`)

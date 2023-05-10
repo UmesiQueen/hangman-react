@@ -24,9 +24,12 @@ const Graphics: React.FC = () => {
   const { selected } = useContext(AppContext);
   const lives = selected.mismatch.length;
 
-  
   return (
-    <img src={imageSrc(lives)} alt="hangman" className="w-[15rem] h-[15rem] my-4" />
+    <img
+      src={imageSrc(lives)}
+      alt="hangman"
+      className="w-[15rem] h-[15rem] my-4"
+    />
   );
 };
 

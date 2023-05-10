@@ -1,6 +1,4 @@
-import React, { FC } from "react";
-
-const Header: FC = () => {
+const Header = () => {
   return (
     <header className=" flex flex-col items-center">
       <h1 className="font-bold text-[3em] inline-flex items-center mt-3 ">

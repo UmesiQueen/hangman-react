@@ -33,7 +33,7 @@ const alphabet = [
 const Alphabet: React.FC = () => {
   const letterRefs = useRef<any>([]);
   const { word, setSelected, state } = useContext(AppContext);
-  const Letters = word.map((el: any) => el.word.split(""));
+  const Letters = word.word.split("");
 
   // restore disabled buttons
   useEffect(() => {
@@ -44,17 +44,15 @@ const Alphabet: React.FC = () => {
   const handleClick = (index: number) => {
     const selected = letterRefs.current[index].textContent.toUpperCase();
 
-    setSelected((prev: any) => {
-      return {
-        all: [...prev.all, selected],
-        mismatch: !Letters[0].includes(selected)
-          ? [...prev.mismatch, selected]
-          : [...prev.mismatch],
-        match: Letters[0].includes(selected)
-          ? [...prev.match, selected]
-          : [...prev.match],
-      };
-    });
+    setSelected((prev: any) => ({
+      all: [...prev.all, selected],
+      mismatch: !Letters.includes(selected)
+        ? [...prev.mismatch, selected]
+        : [...prev.mismatch],
+      match: Letters.includes(selected)
+        ? [...prev.match, selected]
+        : [...prev.match],
+    }));
 
     // disable clicked button
     letterRefs.current[index].classList.add("selected");
